@@ -1,0 +1,4 @@
+<launch>
+  <node name="ar601_rqt" pkg="rqt_gui" type="rqt_gui" respawn="false"
+	output="screen" args="--perspective-file $(find ar601_control)/launch/ar601_rqt.perspective"/>
+</launch>

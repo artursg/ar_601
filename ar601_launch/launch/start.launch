@@ -1,0 +1,11 @@
+<launch>
+  <node pkg="ar601_connection" type="ar601_connection_node" name="ar601_connection_node" output="screen"/>
+  <param name="robot_description" command="$(find xacro)/xacro.py $(find ar601_description)/urdf/ar601.urdf.xacro" />
+  <node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher" />
+  <node pkg="ar601_kinematics" type="ar601_ikinematics_node" name="ar601_ikenematics" />
+  <node pkg="ar601_kinematics" type="ar601_fkinematics_node" name="ar601_fkenematics" />
+  <node pkg="ar601_trajectories" type="ar601_trajectories_node" name="robot_trajectories" />
+  <param name="trajectory" value="0" />
+ <include file="$(find ar601_preview_control)/launch/force.launch" />
+</launch>
+

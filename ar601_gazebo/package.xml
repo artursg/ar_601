@@ -1,0 +1,19 @@
+<package>
+  <name>ar601_gazebo</name>
+  <version>0.0.1</version>
+  <description>AR601 gazebo package.</description>
+  <maintainer email="asagitov@todo.todo">Artur</maintainer>
+
+  <license>TODO</license>
+
+  <author email="asagitov@todo.todo">Artur</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>ar601_description</run_depend>
+  <run_depend>ar601_control</run_depend> 
+  <run_depend>gazebo_ros</run_depend> 
+
+  <export>
+  </export>
+</package>

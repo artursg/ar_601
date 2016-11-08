@@ -1,0 +1,162 @@
+ar601:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 250
+  # Position Controllers ---------------------------------------
+  
+  LHipYaw_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: LHipYaw 
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  LHipRoll_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: LHipRoll
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  LHipPitch_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: LHipPitch
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  LKneePitch_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: LKneePitch
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  LAnklePitch_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: LAnklePitch
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  LAnkleRoll_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: LAnkleRoll
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  RHipYaw_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: RHipYaw 
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  RHipRoll_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: RHipRoll
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  RHipPitch_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: RHipPitch
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  RKneePitch_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: RKneePitch
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  RAnklePitch_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: RAnklePitch
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  RAnkleRoll_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: RAnkleRoll
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  TorsoYaw_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: TorsoYaw
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  Neck1Pitch_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Neck1Pitch
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  Neck2Yaw_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Neck2Yaw
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  Head1Roll_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Head1Roll
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  Head2Pitch_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Head2Pitch
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  RShoulder1Pitch_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: RShoulder1Pitch
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  RShoulder2Roll_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: RShoulder2Roll
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  RShoulder3Pitch_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: RShoulder3Pitch
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  RElbowYaw_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: RElbowYaw
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  RArmPitch_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: RArmPitch
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  RWrist1Roll_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: RWrist1Roll
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  RWrist2Yaw_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: RWrist2Yaw
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  LShoulder1Pitch_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: LShoulder1Pitch
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  LShoulder2Roll_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: LShoulder2Roll
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  LShoulder3Pitch_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: LShoulder3Pitch
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  LElbowYaw_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: LElbowYaw
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  LArmPitch_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: LArmPitch
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  LWrist1Roll_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: LWrist1Roll
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+
+  LWrist2Yaw_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: LWrist2Yaw
+    pid: {p: 100.0, i: 0.0, d: 0.0}
+

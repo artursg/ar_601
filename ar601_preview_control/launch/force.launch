@@ -1,0 +1,16 @@
+<launch>
+  <node name="right_foot_zmp" pkg="ar601_preview_control" type="force_node">
+    <param name="uch_topic" value="/force/right_foot_uch" />
+    <param name="KMx" value="0.0265" />
+    <param name="KMy" value="0.0276" />
+    <param name="KFz" value="0.9166" />
+    <param name="Reverse" value="true" />
+  </node>
+  <node name="left_foot_zmp" pkg="ar601_preview_control" type="force_node">
+    <param name="uch_topic" value="/force/left_foot_uch" />
+    <param name="KMx" value="0.0285" />
+    <param name="KMy" value="0.0274" />
+    <param name="KFz" value="0.9699" />
+    <param name="Reverse" value="false" />
+  </node>
+</launch>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package>
+  <name>ar601_launch</name>
+  <version>0.0.1</version>
+  <description>The ar601 launch files package</description>
+  <maintainer email="asagitov@todo.todo">asagitov</maintainer>
+
+  <license>TODO</license>
+
+  <run_depend>ar601_connection</run_depend> -->
+  <buildtool_depend>catkin</buildtool_depend>
+</package>

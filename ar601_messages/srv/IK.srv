@@ -1,0 +1,15 @@
+bool left
+float64 x
+float64 y
+float64 z
+float64 phi_x
+float64 phi_y
+float64 phi_z
+float64 x_t
+float64 y_t
+float64 z_t
+float64 phi_x_t
+float64 phi_y_t
+float64 phi_z_t
+---
+float64[] angles

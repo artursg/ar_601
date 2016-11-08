@@ -1,0 +1,318 @@
+<robot>
+  <gazebo>
+    <plugin filename="libgazebo_ros_control.so" name="ros_control">
+      <robotNamespace>/ar601</robotNamespace>
+    </plugin>
+  </gazebo>
+  <transmission name="trans_LHipYaw">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LHipYaw">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_LHipYaw">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_LHipRoll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LHipRoll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_LHipRoll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_LHipPitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LHipPitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="LHipPitch_motor">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_LKneePitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LKneePitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_LKneePitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_LAnklePitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LAnklePitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_LAnklePitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_LAnkleRoll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LAnkleRoll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_LAnkleRoll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_RHipYaw">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RHipYaw">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_RHipYaw">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_RHipRoll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RHipRoll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_RHipRoll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_RHipPitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RHipPitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RHipPitch_motor">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_RKneePitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RKneePitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_RKneePitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_RAnklePitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RAnklePitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_RAnklePitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_RAnkleRoll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RAnkleRoll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_RAnkleRoll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_TorsoYaw">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="TorsoYaw">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_TorsoYaw">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>  
+  <transmission name="trans_Neck1Pitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Neck1Pitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_Neck1Pitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_Neck2Yaw">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Neck2Yaw">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_Neck2Yaw">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_Head1Roll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Head1Roll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_Head1Roll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_Head2Pitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Head2Pitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_Head2Pitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_RShoulder1Pitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RShoulder1Pitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_RShoulder1Pitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_RShoulder2Roll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RShoulder2Roll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_RShoulder2Roll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_RShoulder3Pitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RShoulder3Pitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_RShoulder3Pitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_RElbowYaw">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RElbowYaw">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_RElbowYaw">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_RArmPitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RArmPitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_RArmPitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_RWrist1Roll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RWrist1Roll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_RWrist1Roll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_RWrist2Yaw">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RWrist2Yaw">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_RWrist2Yaw">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_LShoulder1Pitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LShoulder1Pitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_LShoulder1Pitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_LShoulder2Roll">
+  <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LShoulder2Roll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_LShoulder2Roll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_LShoulder3Pitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LShoulder3Pitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_LShoulder3Pitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_LElbowYaw">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LElbowYaw">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_LElbowYaw">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_LArmPitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LArmPitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_LArmPitch">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_LWrist1Roll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LWrist1Roll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_LWrist1Roll">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="trans_LWrist2Yaw">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="LWrist2Yaw">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_LWrist2Yaw">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+</robot>
+

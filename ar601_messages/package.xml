@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package>
+  <name>ar601_messages</name>
+  <version>0.0.1</version>
+  <description>The ar601_messages package</description>
+  <maintainer email="asagitov@todo.todo">Artur</maintainer>
+  <license>TODO</license>
+  <build_depend>message_generation</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>message_runtime</run_depend>
+  <export>
+  </export>
+</package>

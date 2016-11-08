@@ -1,0 +1,19 @@
+<robot>
+  <gazebo reference="LFoot">
+    <kd>10.0</kd>
+    <kp>1000000</kp>
+    <mu1>9000</mu1>
+    <mu2>9000</mu2>
+    <minDepth>0.01</minDepth>
+    <maxContacts>4</maxContacts>
+  </gazebo>
+  
+  <gazebo reference="RFoot">
+    <kd>10.0</kd>
+    <kp>1000000</kp>
+    <mu1>9000</mu1>
+    <mu2>9000</mu2>
+    <minDepth>0.01</minDepth>
+    <maxContacts>4</maxContacts>
+  </gazebo>
+</robot>

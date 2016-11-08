@@ -1,0 +1,1845 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"
+       name="ar601_description">
+  
+  <xacro:include filename="ar601_control.xacro"/>
+  <xacro:include filename="ar601_sensors.xacro"/>
+  <link
+      name="Taz">
+    <inertial>
+      <origin
+          xyz="0.0087164680405749 3.85670853000416E-07 -0.0516566059306696"
+          rpy="0 0 0" />
+      <mass
+          value="4.126607417192" />
+      <inertia
+          ixx="0.0283228836767461"
+          ixy="-8.93752190280835E-07"
+          ixz="-0.00010746999267335"
+          iyy="0.0119569214602084"
+          iyz="-1.55646170538169E-07"
+          izz="0.0338385738926162" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>/>
+      <mesh
+          filename="package://ar601_description/meshes/Taz.STL" />
+      </geometry>
+      <material
+          name="">
+	<color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/Taz.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+      name="LPelvis">
+    <inertial>
+      <origin
+          xyz="-0.034371318905109 -0.000229607173654015 0.0539936820903349"
+          rpy="0 0 0" />
+      <mass
+          value="0.907617218223575" />
+      <inertia
+          ixx="0.00151302645490848"
+          ixy="-0.000198089046012854"
+          ixz="0.000271473325446714"
+          iyy="0.00413954333111072"
+          iyz="-1.38946002019542E-05"
+          izz="0.0037006905188415" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/LPelvis.STL" />
+      </geometry>
+      <material
+          name="">
+	<color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/LPelvis.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="LHipYaw"
+      type="revolute">
+    <origin
+	xyz="0.0276 0.088 -0.207"
+	rpy="0 0 0" />
+    <parent
+	link="Taz" />
+    <child
+	link="LPelvis" />
+    <axis
+	xyz="0 0 1" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="LHip">
+    <inertial>
+      <origin
+          xyz="-0.0136022505291461 -5.43789539786399E-09 1.636728808041E-10"
+          rpy="0 0 0" />
+      <mass
+          value="0.75478838932295" />
+      <inertia
+          ixx="0.000785770667219093"
+          ixy="-5.48395888230805E-10"
+          ixz="7.71693891537235E-12"
+          iyy="0.00126536743993476"
+          iyz="-9.46401853755945E-11"
+          izz="0.00156024816512556" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/LHip.STL" />
+      </geometry>
+      <material
+          name="">
+	<color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/LHip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="LHipRoll"
+      type="revolute">
+    <origin
+	xyz="0 0 0"
+	rpy="0 0 0" />
+    <parent
+	link="LPelvis" />
+    <child
+	link="LHip" />
+    <axis
+	xyz="1 0 0" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="LThigh">
+    <inertial>
+      <origin
+          xyz="0.00788980825449852 0.00603649196198869 -0.170592699741382"
+          rpy="0 0 0" />
+      <mass
+          value="4.04038507526498" />
+      <inertia
+          ixx="0.040671542742538"
+          ixy="-6.6889392536114E-05"
+          ixz="0.000378920244478984"
+          iyy="0.0351762772755963"
+          iyz="0.000877200144819809"
+          izz="0.0117448419289042" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/LThigh.STL" />
+      </geometry>
+      <material
+          name="">
+	<color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/LThigh.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="LHipPitch"
+      type="revolute">
+    <origin
+	xyz="0 0 0"
+	rpy="0 0 0" />
+    <parent
+	link="LHip" />
+    <child
+	link="LThigh" />
+    <axis
+	xyz="0 -1 0" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="LTibia">
+    <inertial>
+      <origin
+          xyz="0.00249012228479518 0.0041119614089716 -0.153092062309401"
+          rpy="0 0 0" />
+      <mass
+          value="2.44133941221641" />
+      <inertia
+          ixx="0.013860686253242"
+          ixy="7.8857051441029E-05"
+          ixz="0.000662790135047554"
+          iyy="0.0113793958591796"
+          iyz="4.21696983560829E-07"
+          izz="0.00566075846057969" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/LTibia.STL" />
+      </geometry>
+      <material
+          name="">
+	<color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/LTibia.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="LKneePitch"
+      type="revolute">
+    <origin
+	xyz="0 0 -0.28"
+	rpy="0 0 0" />
+    <parent
+	link="LThigh" />
+    <child
+	link="LTibia" />
+    <axis
+	xyz="0 -1 0" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="LAnkle">
+    <inertial>
+      <origin
+          xyz="-0.00765936279171187 -0.00165000384026552 8.81063000335303E-11"
+          rpy="0 0 0" />
+      <mass
+          value="0.297528291032888" />
+      <inertia
+          ixx="0.00016110997458844"
+          ixy="-8.59904788640721E-11"
+          ixz="1.39528105473871E-12"
+          iyy="0.000283184317460514"
+          iyz="-1.67631180179704E-11"
+          izz="0.000346002622751276" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/LAnkle.STL" />
+      </geometry>
+      <material
+          name="">
+	<color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/LAnkle.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="LAnklePitch"
+      type="revolute">
+    <origin
+	xyz="0 0 -0.28"
+	rpy="0 0 0" />
+    <parent
+	link="LTibia" />
+    <child
+	link="LAnkle" />
+    <axis
+	xyz="0 -1 0" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="LFoot">
+    <inertial>
+      <origin
+          xyz="0.00823598827268202 -0.00391421978806694 -0.0723515382883442"
+          rpy="0 0 0" />
+      <mass
+          value="2.20855084813123" />
+      <inertia
+          ixx="0.00541385375919762"
+          ixy="0.000212557519756087"
+          ixz="-0.00105786398979657"
+          iyy="0.0129912758691653"
+          iyz="-9.55071287499994E-05"
+          izz="0.0152269717393632" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/LFoot.STL" />
+      </geometry>
+      <material
+          name="">
+	<color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/LFoot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="LAnkleRoll"
+      type="revolute">
+    <origin
+	xyz="0 0 0"
+	rpy="0 0 0" />
+    <parent
+	link="LAnkle" />
+    <child
+	link="LFoot" />
+    <axis
+	xyz="1 0 0" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="RPelvis">
+    <inertial>
+      <origin
+          xyz="-0.0343648179278128 0.000226791015475861 0.0539960012507852"
+          rpy="0 0 0" />
+      <mass
+          value="0.907706059628737" />
+      <inertia
+          ixx="0.00151312337799836"
+          ixy="0.000197943950766502"
+          ixz="0.000271619011045127"
+          iyy="0.00413987707972169"
+          iyz="1.3821391337205E-05"
+          izz="0.00370098179044063" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/RPelvis.STL" />
+      </geometry>
+      <material
+          name="">
+	<color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/RPelvis.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="RHipYaw"
+      type="revolute">
+    <origin
+	xyz="0.0276 -0.088 -0.207"
+	rpy="0 0 0" />
+    <parent
+	link="Taz" />
+    <child
+	link="RPelvis" />
+    <axis
+	xyz="0 0 1" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="RHip">
+    <inertial>
+      <origin
+          xyz="-0.0136022505291464 -5.4370208613097E-09 1.90172072533912E-10"
+          rpy="0 0 0" />
+      <mass
+          value="0.75478838932295" />
+      <inertia
+          ixx="0.000785770667219093"
+          ixy="-5.48351778158391E-10"
+          ixz="1.03888849444143E-11"
+          iyy="0.00126537444158408"
+          iyz="-1.43687244171716E-06"
+          izz="0.00156024116347625" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/RHip.STL" />
+      </geometry>
+      <material
+          name="">
+	<color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/RHip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="RHipRoll"
+      type="revolute">
+    <origin
+	xyz="0 0 0"
+	rpy="0 0 0" />
+    <parent
+	link="RPelvis" />
+    <child
+	link="RHip" />
+    <axis
+	xyz="-1 0 0" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="RThigh">
+    <inertial>
+      <origin
+          xyz="0.00772272761033092 -0.00686724885312454 -0.170568855502835"
+          rpy="0 0 0" />
+      <mass
+          value="4.04038534709406" />
+      <inertia
+          ixx="0.040670791320802"
+          ixy="6.80802427706007E-05"
+          ixz="0.000406922231025443"
+          iyy="0.0351842773506305"
+          iyz="-0.000762991098254849"
+          izz="0.0117376311927763" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/RThigh.STL" />
+      </geometry>
+      <material
+          name="">
+	<color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/RThigh.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="RHipPitch"
+      type="revolute">
+    <origin
+	xyz="0 0 0"
+	rpy="0 0 0" />
+    <parent
+	link="RHip" />
+    <child
+	link="RThigh" />
+    <axis
+	xyz="0 -1 0" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="RTibia">
+    <inertial>
+      <origin
+          xyz="0.00267723085691797 -0.00622197340898796 -0.153064754123779"
+          rpy="0 0 0" />
+      <mass
+          value="2.44152987879846" />
+      <inertia
+          ixx="0.0138666862315174"
+          ixy="-7.57887761403463E-05"
+          ixz="0.000637796521429579"
+          iyy="0.0113815029303437"
+          iyz="2.71391450817102E-05"
+          izz="0.00565753256056038" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/RTibia.STL" />
+      </geometry>
+      <material
+          name="">
+	<color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/RTibia.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="RKneePitch"
+      type="revolute">
+    <origin
+	xyz="0 0 -0.28"
+	rpy="0 0 0" />
+    <parent
+	link="RThigh" />
+    <child
+	link="RTibia" />
+    <axis
+	xyz="0 -1 0" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="RAnkle">
+    <inertial>
+      <origin
+          xyz="-0.0070943238193116 -0.00107859485789455 1.06826103518642E-10"
+          rpy="0 0 0" />
+      <mass
+          value="0.297528291032887" />
+      <inertia
+          ixx="0.00016110997458844"
+          ixy="-8.59826597337316E-11"
+          ixz="1.81424985344595E-12"
+          iyy="0.000283185808985535"
+          iyz="-3.06092877658198E-07"
+          izz="0.000346001131226255" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/RAnkle.STL" />
+      </geometry>
+      <material
+          name="">
+	<color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/RAnkle.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="RAnklePitch"
+      type="revolute">
+    <origin
+	xyz="0 0 -0.28"
+	rpy="0 0 0" />
+    <parent
+	link="RTibia" />
+    <child
+	link="RAnkle" />
+    <axis
+	xyz="0 -1 0" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="RFoot">
+    <inertial>
+      <origin
+          xyz="0.00880113569443676 0.0011856409171358 -0.0723516403172665"
+          rpy="0 0 0" />
+      <mass
+          value="2.20854732042564" />
+      <inertia
+          ixx="0.00541384050409536"
+          ixy="-0.000212565699097808"
+          ixz="-0.00105784773940359"
+          iyy="0.0129912149675411"
+          iyz="9.5504506586418E-05"
+          izz="0.0152269216785246" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/RFoot.STL" />
+      </geometry>
+      <material
+          name="">
+	<color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/RFoot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="RAnkleRoll"
+      type="revolute">
+    <origin
+	xyz="0 0 0"
+	rpy="0 0 0" />
+    <parent
+	link="RAnkle" />
+    <child
+	link="RFoot" />
+    <axis
+	xyz="1 0 0" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="Torso">
+    <inertial>
+      <origin
+          xyz="-0.0112719843091738 2.12889798407322E-05 0.167608442453877"
+          rpy="0 0 0" />
+      <mass
+          value="17.758981041176" />
+      <inertia
+          ixx="0.239950692372058"
+          ixy="2.90429049036052E-05"
+          ixz="-0.00893935308325801"
+          iyy="0.214723962394711"
+          iyz="2.72501023517018E-05"
+          izz="0.173286366902963" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/Torso.STL" />
+      </geometry>
+      <material
+          name="">
+	<color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/Torso.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="TorsoYaw"
+      type="revolute">
+    <origin
+	xyz="0 0 0"
+	rpy="0 0 0" />
+    <parent
+	link="Taz" />
+    <child
+	link="Torso" />
+    <axis
+	xyz="0 0 -1" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="Neck1">
+    <inertial>
+      <origin
+          xyz="-0.0222927487404251 4.47895651753765E-05 0.0310409976295018"
+          rpy="0 0 0" />
+      <mass
+          value="0.657320428434859" />
+      <inertia
+          ixx="0.00102025512184757"
+          ixy="8.82154272831658E-09"
+          ixz="-0.000299801674473731"
+          iyy="0.00120134781263084"
+          iyz="7.04080599073224E-10"
+          izz="0.000718372081172033" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/Neck1.STL" />
+      </geometry>
+      <material
+          name="">
+	<color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/Neck1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="Neck1Pitch"
+      type="revolute">
+    <origin
+	xyz="0.0415 0 0.271"
+	rpy="0 0 0" />
+    <parent
+	link="Torso" />
+    <child
+	link="Neck1" />
+    <axis
+	xyz="0 1 0" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="Neck2">
+    <inertial>
+      <origin
+          xyz="-9.38630904016163E-06 4.42165265520874E-05 -0.0162910790688592"
+          rpy="0 0 0" />
+      <mass
+          value="0.0167205530633327" />
+      <inertia
+          ixx="6.21421984464676E-06"
+          ixy="2.12611587878031E-21"
+          ixz="3.26398680229957E-22"
+          iyy="1.28553666419653E-05"
+          iyz="-1.15346883750753E-21"
+          izz="1.23400064727747E-05" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/Neck2.STL" />
+      </geometry>
+      <material
+          name="">
+	<color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/Neck2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="Neck2Yaw"
+      type="revolute">
+    <origin
+	xyz="-0.033 0 0.129"
+	rpy="0 0 0" />
+    <parent
+	link="Neck1" />
+    <child
+	link="Neck2" />
+    <axis
+	xyz="0 0 1" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="Head1">
+    <inertial>
+      <origin
+          xyz="-9.38941181994821E-06 4.42605420928726E-05 -2.87270207621759E-13"
+          rpy="0 0 0" />
+      <mass
+          value="0.140258674510404" />
+      <inertia
+          ixx="0.000255527506833601"
+          ixy="1.91357970932129E-17"
+          ixz="-2.67463391711265E-10"
+          iyy="2.64614495249746E-05"
+          iyz="1.23991920427338E-10"
+          izz="0.000265796055755356" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/Head1.STL" />
+      </geometry>
+      <material
+          name="">
+	<color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/Head1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="Head1Roll"
+      type="revolute">
+    <origin
+	xyz="0 0 0"
+	rpy="0 0 0" />
+    <parent
+	link="Neck2" />
+    <child
+	link="Head1" />
+    <axis
+	xyz="-1 0 0" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="Head2">
+    <inertial>
+      <origin
+          xyz="0.0367567218407244 6.13069479271224E-05 0.0741939345619121"
+          rpy="0 0 0" />
+      <mass
+          value="5.51543814682702" />
+      <inertia
+          ixx="0.0328094469174202"
+          ixy="9.24189424050106E-07"
+          ixz="-0.0037700679389647"
+          iyy="0.0336400080305931"
+          iyz="-1.05545170878113E-07"
+          izz="0.0379699861871773" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/Head2.STL" />
+      </geometry>
+      <material
+          name="">
+	<color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/Head2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="Head2Pitch"
+      type="revolute">
+    <origin
+	xyz="0 0 0"
+	rpy="0 0 0" />
+    <parent
+	link="Head1" />
+    <child
+	link="Head2" />
+    <axis
+	xyz="0 1 0" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="RShoulder1">
+    <inertial>
+      <origin
+          xyz="0.0119949555242503 -0.0447411869608325 0.0124494864503562"
+          rpy="0 0 0" />
+      <mass
+          value="0.702386181282745" />
+      <inertia
+          ixx="0.00106974111532826"
+          ixy="-4.21603468717136E-05"
+          ixz="-1.03125854224853E-05"
+          iyy="0.00208349580288403"
+          iyz="-1.38983012380038E-05"
+          izz="0.00181178156982158" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/RShoulder1.STL" />
+      </geometry>
+      <material
+          name="">
+	<color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/RShoulder1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="RShoulder1Pitch"
+      type="revolute">
+    <origin
+	xyz="0.00816234592944939 -0.122992201326346 0.254997422611944"
+	rpy="0 0 0.184970710964327" />
+    <parent
+	link="Torso" />
+    <child
+	link="RShoulder1" />
+    <axis
+	xyz="0 1 0" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="RShoulder2">
+    <inertial>
+      <origin
+          xyz="0.0512392226930269 -0.0264142906322848 0.00120771182202006"
+          rpy="0 0 0" />
+      <mass
+          value="0.710524721499474" />
+      <inertia
+          ixx="0.00114546631945158"
+          ixy="1.88298954427073E-05"
+          ixz="-1.50894836583682E-06"
+          iyy="0.000678757117060237"
+          iyz="-1.74663088662221E-05"
+          izz="0.00118255499414833" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/RShoulder2.STL" />
+      </geometry>
+      <material
+          name="">
+	<color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/RShoulder2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="RShoulder2Roll"
+      type="revolute">
+    <origin
+	xyz="-0.05 -0.0698999999999998 0"
+	rpy="0 0 -8.32667268468868E-17" />
+    <parent
+	link="RShoulder1" />
+    <child
+	link="RShoulder2" />
+    <axis
+	xyz="1 0 0" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="RShoulder3">
+    <inertial>
+      <origin
+          xyz="-0.000285512379694923 -0.0754223955241937 0.000610317810293803"
+          rpy="0 0 0" />
+      <mass
+          value="0.923986049465604" />
+      <inertia
+          ixx="0.00281485701688073"
+          ixy="-2.01727821238318E-05"
+          ixz="1.6062623282803E-06"
+          iyy="0.0011174015837173"
+          iyz="-2.74275836340887E-05"
+          izz="0.0024862009088974" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/RShoulder3.STL" />
+      </geometry>
+      <material
+          name="">
+	<color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+	<mesh
+            filename="package://ar601_description/meshes/RShoulder3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="RShoulder3Pitch"
+      type="revolute">
+    <origin
+	xyz="0.0497500000000273 -0.0847 0"
+	rpy="0 0 2.77555756156289E-17" />
+    <parent
+	link="RShoulder2" />
+    <child
+	link="RShoulder3" />
+    <axis
+	xyz="0 1 0" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="RElbow">
+    <inertial>
+      <origin
+          xyz="-0.006486929404155 -0.0268889649873131 -0.0306512428440622"
+          rpy="0 0 0" />
+      <mass
+          value="0.0670881837495098" />
+      <inertia
+          ixx="0.000109022839821225"
+          ixy="6.73954004368903E-06"
+          ixz="-1.6780213793162E-07"
+          iyy="8.74563299787509E-05"
+          iyz="-6.59809657822235E-07"
+          izz="0.000124724907558027" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://ar601_description/meshes/RElbow.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://ar601_description/meshes/RElbow.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="RElbowYaw"
+      type="revolute">
+    <origin
+	xyz="0.00999999999999842 -0.148500000000001 0.0305"
+	rpy="0 0 0" />
+    <parent
+	link="RShoulder3" />
+    <child
+	link="RElbow" />
+    <axis
+	xyz="0 0 -1" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="RArm">
+    <inertial>
+      <origin
+          xyz="3.39088911727181E-07 -0.0546541724381554 0.000345780744001489"
+          rpy="0 0 0" />
+      <mass
+          value="0.698821476800581" />
+      <inertia
+          ixx="0.00106001711630364"
+          ixy="-6.29306886417954E-09"
+          ixz="2.13066980178013E-09"
+          iyy="0.000705561415630704"
+          iyz="3.04202034019122E-06"
+          izz="0.00107112324627601" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://ar601_description/meshes/RArm.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://ar601_description/meshes/RArm.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="RArmPitch"
+      type="revolute">
+    <origin
+	xyz="-0.00999999999999997 -0.083 -0.0305"
+	rpy="0 0 0" />
+    <parent
+	link="RElbow" />
+    <child
+	link="RArm" />
+    <axis
+	xyz="0 1 0" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="RWrist1">
+    <inertial>
+      <origin
+          xyz="-8.69257804625434E-09 -1.11022302462516E-16 -8.69257799074319E-09"
+          rpy="0 0 0" />
+      <mass
+          value="0.00354841244692995" />
+      <inertia
+          ixx="2.55224026399827E-07"
+          ixy="-2.77348371395428E-13"
+          ixz="-2.68188875731839E-19"
+          iyy="4.81502399048945E-07"
+          iyz="2.77348371671677E-13"
+          izz="2.55224026399827E-07" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://ar601_description/meshes/RWrist1.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://ar601_description/meshes/RWrist1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="RWrist1Roll"
+      type="revolute">
+    <origin
+	xyz="0 -0.123999999999999 0"
+	rpy="0 0 0" />
+    <parent
+	link="RArm" />
+    <child
+	link="RWrist1" />
+    <axis
+	xyz="-1 0 0" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="RWrist2">
+    <inertial>
+      <origin
+          xyz="0.00429276741230494 -0.0960139603200557 -0.00171644178916985"
+          rpy="0 0 0" />
+      <mass
+          value="0.18388543210187" />
+      <inertia
+          ixx="0.000443455502726644"
+          ixy="-9.44450101813354E-06"
+          ixz="8.86157039488424E-06"
+          iyy="0.000170192928316651"
+          iyz="-1.34640013721051E-06"
+          izz="0.000473552065615098" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://ar601_description/meshes/RWrist2.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://ar601_description/meshes/RWrist2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="RWrist2Yaw"
+      type="revolute">
+    <origin
+	xyz="0 0 0"
+	rpy="0 0 0" />
+    <parent
+	link="RWrist1" />
+    <child
+	link="RWrist2" />
+    <axis
+	xyz="0 0 -1" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="LShoulder1">
+    <inertial>
+      <origin
+          xyz="0.0119102663222135 0.044680169164134 0.0125101838399666"
+          rpy="0 0 0" />
+      <mass
+          value="0.703972240590069" />
+      <inertia
+          ixx="0.00106958029541502"
+          ixy="4.31046051165897E-05"
+          ixz="-1.25610545954009E-05"
+          iyy="0.00208834082537485"
+          iyz="1.35987436285721E-05"
+          izz="0.00181405089345679" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://ar601_description/meshes/LShoulder1.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://ar601_description/meshes/LShoulder1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="LShoulder1Pitch"
+      type="revolute">
+    <origin
+	xyz="0.00816234544717374 0.123080634470917 0.254997422732666"
+	rpy="0 0 -0.184970710964332" />
+    <parent
+	link="Torso" />
+    <child
+	link="LShoulder1" />
+    <axis
+	xyz="0 -1 0" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="LShoulder2">
+    <inertial>
+      <origin
+          xyz="0.0512392400737466 0.0264143370365393 0.0012076909283113"
+          rpy="0 0 0" />
+      <mass
+          value="0.710520459771819" />
+      <inertia
+          ixx="0.00114546112171041"
+          ixy="-1.88293434343879E-05"
+          ixz="-1.50917387927524E-06"
+          iyy="0.000678754020646653"
+          iyz="1.74648361634084E-05"
+          izz="0.0011825421207912" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://ar601_description/meshes/LShoulder2.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://ar601_description/meshes/LShoulder2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="LShoulder2Roll"
+      type="revolute">
+    <origin
+	xyz="-0.05 0.0709000000000001 0"
+	rpy="0 0 -3.05311331771918E-16" />
+    <parent
+	link="LShoulder1" />
+    <child
+	link="LShoulder2" />
+    <axis
+	xyz="1 0 0" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="LShoulder3">
+    <inertial>
+      <origin
+          xyz="-0.000285011372341666 0.0754226804882471 0.000610240061953593"
+          rpy="0 0 0" />
+      <mass
+          value="0.924000387078446" />
+      <inertia
+          ixx="0.00281486815062724"
+          ixy="2.01811427412036E-05"
+          ixz="1.60698461086971E-06"
+          iyy="0.001117411560517"
+          iyz="2.74171545891919E-05"
+          izz="0.00248622929669194" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://ar601_description/meshes/LShoulder3.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://ar601_description/meshes/LShoulder3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="LShoulder3Pitch"
+      type="revolute">
+    <origin
+	xyz="0.0497500000000278 0.0847 0"
+	rpy="0 0 -4.44089209850063E-16" />
+    <parent
+	link="LShoulder2" />
+    <child
+	link="LShoulder3" />
+    <axis
+	xyz="0 -1 0" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="LElbow">
+    <inertial>
+      <origin
+          xyz="-0.00649287644593347 0.0268919667432966 -0.0306567593186295"
+          rpy="0 0 0" />
+      <mass
+          value="0.0670906507056264" />
+      <inertia
+          ixx="0.000109035805023861"
+          ixy="-6.74242041854827E-06"
+          ixz="-1.64115768786618E-07"
+          iyy="8.74615016718308E-05"
+          iyz="6.51814067227342E-07"
+          izz="0.000124731363697923" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://ar601_description/meshes/LElbow.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://ar601_description/meshes/LElbow.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="LElbowYaw"
+      type="revolute">
+    <origin
+	xyz="0.00999999999999802 0.148500000000001 0.0304999999999991"
+	rpy="0 0 -2.77555756156289E-17" />
+    <parent
+	link="LShoulder3" />
+    <child
+	link="LElbow" />
+    <axis
+	xyz="0 0 -1" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="LArm">
+    <inertial>
+      <origin
+          xyz="4.78492893016269E-07 0.0546540523030487 0.000345579805242302"
+          rpy="0 0 0" />
+      <mass
+          value="0.698818860634218" />
+      <inertia
+          ixx="0.00106001756026176"
+          ixy="1.21255797264129E-08"
+          ixz="9.70520460653861E-10"
+          iyy="0.000705558851650984"
+          iyz="-3.04830728342975E-06"
+          izz="0.00107111332490696" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://ar601_description/meshes/LArm.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://ar601_description/meshes/LArm.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="LArmPitch"
+      type="revolute">
+    <origin
+	xyz="-0.0100000000000001 0.083 -0.0305000000000001"
+	rpy="0 0 -2.77555756156289E-17" />
+    <parent
+	link="LElbow" />
+    <child
+	link="LArm" />
+    <axis
+	xyz="0 -1 0" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="LWrist1">
+    <inertial>
+      <origin
+          xyz="8.69257799074319E-09 1.11022302462516E-16 -8.69257799074319E-09"
+          rpy="0 0 0" />
+      <mass
+          value="0.00354841244692995" />
+      <inertia
+          ixx="2.55224026399828E-07"
+          ixy="-2.77348371640273E-13"
+          ixz="2.68436040677386E-19"
+          iyy="4.81502399048944E-07"
+          iyz="-2.77348371730433E-13"
+          izz="2.55224026399827E-07" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://ar601_description/meshes/LWrist1.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://ar601_description/meshes/LWrist1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="LWrist1Roll"
+      type="revolute">
+    <origin
+	xyz="0 0.124000000000002 0"
+	rpy="2.95274063348659E-17 1.22003544019986E-16 -2.77555756156289E-17" />
+    <parent
+	link="LArm" />
+    <child
+	link="LWrist1" />
+    <axis
+	xyz="-1 0 0" />
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+  <link
+      name="LWrist2">
+    <inertial>
+      <origin
+          xyz="0.00820615855961437 0.0984359940324694 -0.0017726428283672"
+          rpy="0 0 0" />
+      <mass
+          value="0.183887662117978" />
+      <inertia
+          ixx="0.000493899030243636"
+          ixy="4.70054866815837E-05"
+          ixz="7.18476072797436E-06"
+          iyy="0.000202822488346785"
+          iyz="4.09807448480365E-06"
+          izz="0.000554731006634576" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://ar601_description/meshes/LWrist2.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://ar601_description/meshes/LWrist2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+      name="LWrist2Yaw"
+      type="revolute">
+    <origin
+	xyz="0 0 0"
+	rpy="0 2.46519032881566E-32 -2.77555756156289E-17" />
+    <parent
+	link="LWrist1" />
+    <child
+	link="LWrist2" />
+    <axis
+	xyz="0 0 -1" />
+    
+    <limit
+	lower="-1.57"
+	upper="1.57"
+	effort="1000"
+	velocity="1" />
+  </joint>
+</robot>

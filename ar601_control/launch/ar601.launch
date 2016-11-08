@@ -1,0 +1,15 @@
+<launch>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find ar601_control)/config/ar601_control.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/ar601" args="LHipYaw_position_controller LHipRoll_position_controller LHipPitch_position_controller LKneePitch_position_controller LAnklePitch_position_controller LAnkleRoll_position_controller RHipYaw_position_controller RHipRoll_position_controller RHipPitch_position_controller RKneePitch_position_controller RAnklePitch_position_controller RAnkleRoll_position_controller TorsoYaw_position_controller Neck1Pitch_position_controller Neck2Yaw_position_controller Head1Roll_position_controller Head2Pitch_position_controller RShoulder1Pitch_position_controller RShoulder2Roll_position_controller RShoulder3Pitch_position_controller RElbowYaw_position_controller RArmPitch_position_controller RWrist1Roll_position_controller RWrist2Yaw_position_controller LShoulder1Pitch_position_controller LShoulder2Roll_position_controller LShoulder3Pitch_position_controller LElbowYaw_position_controller LArmPitch_position_controller LWrist1Roll_position_controller LWrist2Yaw_position_controller joint_state_controller"/>
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    <remap from="/joint_states" to="/ar601/joint_states" />
+  </node>
+
+</launch>

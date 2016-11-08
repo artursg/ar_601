@@ -1,0 +1,40 @@
+<robot>
+  <gazebo reference="LFoot">
+    <sensor name="LFoot_fsensor" type="contact">
+    <always_on>true</always_on>
+    <update_rate>30.0</update_rate>
+    <contact>
+      <collision>LFoot_collision</collision>
+    </contact>
+    <plugin name="LFoot_bumper" filename="libgazebo_ros_bumper.so">
+      <bumperTopicName>LFoot_state</bumperTopicName>
+      <frameName>LFoot_state</frameName>
+    </plugin>
+    </sensor>
+  </gazebo>
+  <gazebo reference="RFoot">
+    <sensor name="RFoot_sensor" type="contact">
+    <always_on>true</always_on>
+    <update_rate>30.0</update_rate>
+    <contact>
+      <collision>RFoot_collision</collision>
+    </contact>
+    <plugin name="RFoot_bumper" filename="libgazebo_ros_bumper.so">
+      <bumperTopicName>RFoot_state</bumperTopicName>
+      <frameName>RFoot_state</frameName>
+    </plugin>
+    </sensor>
+  </gazebo>
+  <gazebo>
+    <plugin filename="libgazebo_ros_imu.so" name="imu_sensor">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>30</updateRate>
+      <bodyName>Torso</bodyName>
+      <topicName>imu/data</topicName>
+      <serviceName>imu/service</serviceName>
+      <gaussianNoise>${0.0017*0.0017}</gaussianNoise>
+      <xyzOffset>0 0 0</xyzOffset>
+      <rpyOffset>0 0 0</rpyOffset>
+    </plugin>
+  </gazebo>  
+</robot>

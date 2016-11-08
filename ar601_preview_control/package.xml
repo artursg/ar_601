@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package>
+  <name>ar601_preview_control</name>
+  <version>0.0.1</version>
+  <description>The ar601_preview_control package</description>
+  <maintainer email="artursg@todo.todo">artursg</maintainer>
+  <license>TODO</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>ar601_messages</build_depend>
+  <run_depend>ar601_messages</run_depend>
+  <export>
+  </export>
+</package>
