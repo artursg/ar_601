@@ -28,8 +28,8 @@
 
 #include <robot_state_publisher/robot_state_publisher.h>
 #include <kdl_parser/kdl_parser.hpp>
-#include "ar601_connection/JointStatus.h"
-#include "ar601_connection/Power.h"
+#include "ar601_messages/JointStatus.h"
+#include "ar601_messages/Power.h"
 #include "ar_packet.h"
 
 using boost::asio::ip::udp;

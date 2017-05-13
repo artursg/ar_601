@@ -6,8 +6,8 @@
 #include <sensor_msgs/JointState.h>
 #include <message_filters/subscriber.h>
 #include <message_filters/time_synchronizer.h>
-#include "ar601_kinematics/IK.h"
-#include "ar601_kinematics/FK.h"
+#include "ar601_messages/IK.h"
+#include "ar601_messages/FK.h"
 #include "ar601_trajectories/GetTrajectory.h"
 #include <deque>
 #include <Eigen/Core>
@@ -156,8 +156,8 @@ double torso_pitch(double x)
 void set_initial_pose(double foot_diff, double height, boost::shared_ptr<sensor_msgs::JointState const> ptr) 
 {
   ros::Rate r(250);
-  ar601_kinematics::IK::Request req;
-  ar601_kinematics::IK::Response resLeft, resRight;
+  ar601_messages::IK::Request req;
+  ar601_messages::IK::Response resLeft, resRight;
   req.left = true;
   req.x = 0;
   req.y = foot_diff;
@@ -258,8 +258,8 @@ int main(int argc, char ** argv)
   try{
     ros::NodeHandle nh;
     zmp_x = zmp_y = 0;
-    ik_service = nh.serviceClient<ar601_kinematics::IK>("ik_server");
-    fk_service = nh.serviceClient<ar601_kinematics::FK>("fk_server");
+    ik_service = nh.serviceClient<ar601_messages::IK>("ik_server");
+    fk_service = nh.serviceClient<ar601_messages::FK>("fk_server");
     trajectory_service = nh.serviceClient<ar601_trajectories::GetTrajectory>("get_trajectory");
     pubLHipYaw = nh.advertise<std_msgs::Float64>("control/joint_12/command", 1000);
     pubLHipRoll = nh.advertise<std_msgs::Float64>("control/joint_11/command", 1000);
@@ -457,8 +457,8 @@ int main(int argc, char ** argv)
       pc_node.get_yk(y1, y2, y3);
       fprintf(f,"%f %f %f %f %f %f %f %f\n",x1,y1,x3,y3,zmp_x,zmp_y,resTrajectory.zmp_x[c], resTrajectory.zmp_y[c]);
       fprintf(f_zmp_error_out,"%f %f\n",zmp_x,zmp_y);
-      ar601_kinematics::IK::Request req;
-      ar601_kinematics::IK::Response resLeft, resRight;
+      ar601_messages::IK::Request req;
+      ar601_messages::IK::Response resLeft, resRight;
       double h = _z0;
       double current_angle;
       if (fabs(resTrajectory.theta_right[c] - resTrajectory.theta_left[c])<M_PI)

@@ -1,5 +1,5 @@
 #include "ros/ros.h"
-#include "ar601_kinematics/IK.h"
+#include "ar601_messages/IK.h"
 
 extern "C" {
   void ik_right_12(double x, double y, double z, double phi_x, double phi_y,
@@ -10,8 +10,8 @@ extern "C" {
                 double phi_y_t, double phi_z_t, double angles[6]);
 }
 
-bool ik(ar601_kinematics::IK::Request  &req,
-	ar601_kinematics::IK::Response &res)
+bool ik(ar601_messages::IK::Request  &req,
+	ar601_messages::IK::Response &res)
 {
 
   double angles[6];

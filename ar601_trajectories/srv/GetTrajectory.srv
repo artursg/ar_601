@@ -1,0 +1,14 @@
+int32 type
+---
+int64 N
+float64[] zmp_x
+float64[] zmp_y
+float64[] x_left
+float64[] y_left
+float64[] z_left
+float64[] theta_left
+float64[] x_right
+float64[] y_right
+float64[] z_right
+float64[] theta_right
+float64[] theta_torso

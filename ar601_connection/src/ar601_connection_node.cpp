@@ -537,7 +537,7 @@ void publish_packet(ARPacketT & packet)
   sensor_msgs::JointState joint_msgs, joint_msgs_raw;
   sensor_msgs::Imu imu_msg;
   sensor_msgs::Imu imu_msg_2;
-  ar601_connection::JointStatus joint_status_msgs; 
+  ar601_messages::JointStatus joint_status_msgs; 
   std::map<std::string, double> joint_positions;
   for(it_type iterator = devices.begin(); iterator != devices.end(); iterator++) 
     {
@@ -644,7 +644,7 @@ void publish_packet(ARPacketT & packet)
 	    };
 	}
     }
-  ar601_connection::Power power_msgs;
+  ar601_messages::Power power_msgs;
   power_msgs.load48.data = get_48V_U(packet);
   power_msgs.voltage48.data = get_48V_I(packet);
   // 12v
@@ -792,13 +792,13 @@ int main(int argc, char ** argv)
   ros::NodeHandle n;
   joint_state_pub = n.advertise<sensor_msgs::JointState>("joint_states", PUBLISHING_RATE);
   joint_state_raw_pub = n.advertise<sensor_msgs::JointState>("joint_states_raw", PUBLISHING_RATE);
-  joint_status_pub = n.advertise<ar601_connection::JointStatus>("joint_status", PUBLISHING_RATE);
+  joint_status_pub = n.advertise<ar601_messages::JointStatus>("joint_status", PUBLISHING_RATE);
   imu_pub = n.advertise<sensor_msgs::Imu>("imu", PUBLISHING_RATE);
   imu2_pub = n.advertise<sensor_msgs::Imu>("imu2", PUBLISHING_RATE);
   temperature_pub = n.advertise<sensor_msgs::Temperature>("temperature", PUBLISHING_RATE);
   magnetic_field_pub = n.advertise<sensor_msgs::MagneticField>("magnetic_field", PUBLISHING_RATE);
   pressure_pub  = n.advertise<sensor_msgs::FluidPressure>("pressure", PUBLISHING_RATE);
-  power_pub = n.advertise<ar601_connection::Power >("power/lines", PUBLISHING_RATE);
+  power_pub = n.advertise<ar601_messages::Power >("power/lines", PUBLISHING_RATE);
   force_rfoot_pub = n.advertise<std_msgs::Float64MultiArray >("force/right_foot", PUBLISHING_RATE);
   force_lfoot_pub = n.advertise<std_msgs::Float64MultiArray >("force/left_foot", PUBLISHING_RATE);
   force_rarm_pub = n.advertise<std_msgs::Float64MultiArray >("force/right_arm", PUBLISHING_RATE);

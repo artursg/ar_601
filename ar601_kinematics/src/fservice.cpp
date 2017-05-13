@@ -1,5 +1,5 @@
 #include "ros/ros.h"
-#include "ar601_kinematics/FK.h"
+#include "ar601_messages/FK.h"
 
 extern "C" {
   void right_in_left(double q1, double q2, double q3, double q4, double q5,
@@ -10,8 +10,8 @@ extern "C" {
   double q6, double q7, double q8, double q9, double q10, double q11, double q12, double S[16]);
 }
 
-bool fk(ar601_kinematics::FK::Request  &req,
-	ar601_kinematics::FK::Response &res)
+bool fk(ar601_messages::FK::Request  &req,
+	ar601_messages::FK::Response &res)
 {
 
   double S[16];

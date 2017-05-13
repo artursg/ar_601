@@ -1,0 +1,68 @@
+#!/usr/bin/env python
+import rospy
+from gazebo_msgs.msg import LinkStates
+from sensor_msgs.msg import JointState
+from std_msgs.msg import Float64
+import numpy as np
+import time
+
+def set_publishers(pub):
+    pub.append(rospy.Publisher('/control/joint_17/command', Float64, queue_size=10))
+    pub.append(rospy.Publisher('/control/joint_18/command', Float64, queue_size=10))
+    pub.append(rospy.Publisher('/control/joint_19/command', Float64, queue_size=10))
+    pub.append(rospy.Publisher('/control/joint_20/command', Float64, queue_size=10))
+    pub.append(rospy.Publisher('/control/joint_21/command', Float64, queue_size=10))
+
+    pub.append(rospy.Publisher('/control/joint_33/command', Float64, queue_size=10))
+    pub.append(rospy.Publisher('/control/joint_34/command', Float64, queue_size=10))
+    pub.append(rospy.Publisher('/control/joint_35/command', Float64, queue_size=10))
+    pub.append(rospy.Publisher('/control/joint_36/command', Float64, queue_size=10))
+    pub.append(rospy.Publisher('/control/joint_51/command', Float64, queue_size=10))
+
+    pub.append(rospy.Publisher('/control/joint_49/command', Float64, queue_size=10))
+
+def set_zero_angles(pub,input_angles):
+    rate = rospy.Rate(250)
+    for i in range(0,2001):
+        pub[0].publish(input_angles[0]*(2000-i)/2000)
+        pub[1].publish(input_angles[1]*(2000-i)/2000)
+        pub[2].publish(input_angles[2]*(2000-i)/2000)
+        pub[3].publish(input_angles[3]*(2000-i)/2000)
+        pub[4].publish(input_angles[4]*(2000-i)/2000) 
+        pub[5].publish(input_angles[5]*(2000-i)/2000)
+        pub[6].publish(input_angles[6]*(2000-i)/2000)
+        pub[7].publish(input_angles[7]*(2000-i)/2000)
+        pub[8].publish(input_angles[8]*(2000-i)/2000)
+        pub[9].publish(input_angles[9]*(2000-i)/2000)
+        pub[10].publish(input_angles[10]*(2000-i)/2000)
+        rate.sleep()
+        #print input_angles[0]*(2000-i)/2000
+
+def set_zero():
+    rospy.init_node('set_to_zero', anonymous=True)
+    msg=rospy.wait_for_message("/joint_states", JointState)
+    initial_angles = []
+    initial_angles.append(msg.position[12])
+    initial_angles.append(msg.position[13])
+    initial_angles.append(msg.position[14])
+    initial_angles.append(msg.position[15])
+    initial_angles.append(msg.position[16])
+    initial_angles.append(msg.position[24])
+    initial_angles.append(msg.position[25])
+    initial_angles.append(msg.position[26])
+    initial_angles.append(msg.position[27])
+    initial_angles.append(msg.position[33])
+    initial_angles.append(msg.position[32])
+    #print initial_angles
+    global pub
+    pub=[]
+    set_publishers(pub)
+    set_zero_angles(pub,initial_angles)
+
+if __name__ == '__main__':
+    try:
+
+        set_zero()
+        
+    except rospy.ROSInterruptException:
+        pass

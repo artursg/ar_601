@@ -21,9 +21,12 @@ generate_messages(
   DEPENDENCIES geometry_msgs
   std_msgs
   sensor_msgs
-
 )
 
+install(DIRECTORY include/${PROJECT_NAME}/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  PATTERN ".svn" EXCLUDE
+)
 
 catkin_package(
     CATKIN_DEPENDS sensor_msgs std_msgs  message_runtime

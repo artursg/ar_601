@@ -1,15 +1,15 @@
 #include "ros/ros.h"
 #include "geometry_msgs/Twist.h"
 #include "std_msgs/Float64.h"
-#include "ar601_kinematics/IK.h"
+#include "ar601_messages/IK.h"
 
 ros::Publisher pubLHipYaw, pubLHipRoll, pubLHipPitch, pubLKneePitch, pubLAnklePitch, pubLAnkleRoll, pubRHipYaw, pubRHipRoll, pubRHipPitch, pubRKneePitch, pubRAnklePitch, pubRAnkleRoll;
 ros::ServiceClient ik_service;
 
 void commandCallback(const geometry_msgs::Twist::ConstPtr& msg)
 {
-  ar601_kinematics::IK::Request req;
-  ar601_kinematics::IK::Response resLeft, resRight;
+  ar601_messages::IK::Request req;
+  ar601_messages::IK::Response resLeft, resRight;
   req.left = true;
   req.x = 0;
   req.y = 0.088;
@@ -70,7 +70,7 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "cog_move");
   ros::NodeHandle n;
   ros::Subscriber sub = n.subscribe("cog_command", 1000, commandCallback);
-  ik_service = n.serviceClient<ar601_kinematics::IK>("ik_server");
+  ik_service = n.serviceClient<ar601_messages::IK>("ik_server");
   pubLHipYaw = n.advertise<std_msgs::Float64>("control/joint_12/command", 1000);
   pubLHipRoll = n.advertise<std_msgs::Float64>("control/joint_11/command", 1000);
   pubLHipPitch = n.advertise<std_msgs::Float64>("control/joint_10/command", 1000);
